@@ -15,6 +15,8 @@ if [ ! -f /usr/share/debootstrap/scripts/$DIST ]; then
 fi
 
 sudo debootstrap --arch=$ARCH --variant=minbase $DIST $TARGET $SOURCE
+echo "deb $SOURCE xenial universe multiverse" >> $TARGET/etc/apt/sources.list
+echo "deb $SOURCE xenial-security universe multiverse" >> $TARGET/etc/apt/sources.list
 
 tar -c -C $TARGET .|docker import - $TARGET
 docker tag $TARGET $PREFIX:$TAG
@@ -36,4 +38,3 @@ sed -i -e 's;docker create --name \$(BUILD_IMAGE) \$(BUILD_IMAGE);docker create 
 
 # Make slim image
 PREFIX=kodbasen/ubuntu-slim-armhf make
-
