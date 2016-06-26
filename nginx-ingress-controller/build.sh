@@ -15,8 +15,8 @@ if [ ! -f $K8S_BINARIES/nginx-ingress-controller ]; then
 fi
 cd contrib/ingress/controllers/nginx
 cp $K8S_BINARIES/nginx-ingress-controller .
-sed -i -e "s;^FROM gcr.io/google_containers/nginx-slim:0\.6;FROM kodbasen/nginx-slim-armhf:0\.6;" "Dockerfile"
-#docker build -t kodbasen/nginx-ingress-controller-armhf:0.61 .
+sed -i -e "s;^FROM gcr.io/google_containers/nginx-slim;FROM kodbasen/nginx-slim-armhf;" "Dockerfile"
+docker build -t kodbasen/nginx-ingress-controller-armhf:0.61 .
 
 # Build 404-server
 if [ ! -f $K8S_BINARIES/404-server ]; then
@@ -30,3 +30,7 @@ docker build -t kodbasen/defaultbackend-armhf:0.0 .
 
 cd $BASEDIR
 rm -Rf contrib
+
+wget -q https://raw.githubusercontent.com/kubernetes/contrib/master/ingress/controllers/nginx/rc.yaml \
+&& sed -i -e "s;gcr\.io/google_containers/nginx-ingress-controller;kodbasen/nginx-ingress-controller-armhf;" "rc.yaml" \
+&& sed -i -e "s;gcr\.io/google_containers/defaultbackend;kodbasen/defaultbackend-armhf;" "rc.yaml"
