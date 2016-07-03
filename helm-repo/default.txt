@@ -1,0 +1,2 @@
+This is the repository location.
+You should map a volume to /data/www that contains your helm charts.
