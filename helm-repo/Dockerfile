@@ -4,6 +4,8 @@ ADD nginx.conf /etc/nginx/nginx.conf
 
 ADD default.txt /charts/README.txt
 
+ADD index.yaml /charts/index.yaml
+
 VOLUME /charts
 
 EXPOSE 80 443
