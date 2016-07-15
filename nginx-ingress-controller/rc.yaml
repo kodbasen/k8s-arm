@@ -1,7 +1,6 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: kube-system
   name: default-http-backend
   labels:
     k8s-app: default-http-backend
@@ -17,7 +16,6 @@ spec:
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  namespace: kube-system
   name: default-http-backend
 spec:
   replicas: 1
@@ -55,7 +53,6 @@ spec:
 apiVersion: v1
 kind: ReplicationController
 metadata:
-  namespace: kube-system
   name: nginx-ingress-controller
   labels:
     k8s-app: nginx-ingress-lb
@@ -71,7 +68,7 @@ spec:
     spec:
       terminationGracePeriodSeconds: 60
       containers:
-      - image: kodbasen/nginx-ingress-controller-armhf:0.61
+      - image: kodbasen/nginx-ingress-controller-armhf:0.8.1
         name: nginx-ingress-lb
         imagePullPolicy: Always
         livenessProbe:
@@ -102,4 +99,4 @@ spec:
           hostPort: 8080
         args:
         - /nginx-ingress-controller
-        - --default-backend-service=kube-system/default-http-backend
+        - --default-backend-service=default/default-http-backend

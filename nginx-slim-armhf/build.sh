@@ -12,6 +12,7 @@ chmod a+x build.sh
 
 sed -i -e "s;^FROM gcr.io/google_containers/ubuntu-slim:0.3;FROM ${BASE_IMG};" "Dockerfile"
 sed -i -e "s;gcr.io/google_containers/nginx-slim;kodbasen/nginx-slim-armhf;" "Makefile"
+sed -i -e "/--with-cc-opt/d" "build.sh"
 
 make container
 
