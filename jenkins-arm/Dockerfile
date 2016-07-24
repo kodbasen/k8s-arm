@@ -2,7 +2,8 @@ FROM kodbasen/java-jdk-armhf:jdk-8u91-b14
 
 RUN apt-get update \
   && apt-get install -y bash git curl zip \
-  && rm -rf /var/lib/apt/lists/*
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
