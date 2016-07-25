@@ -1,4 +1,4 @@
-FROM kodbasen/java-jdk-armhf:jdk-8u91-b14
+FROM kodbasen/java-jdk-arm:jdk-8u91-b14
 
 ENV HOME /home/jenkins
 
