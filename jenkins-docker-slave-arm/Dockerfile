@@ -9,6 +9,6 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Must be run as root for now
 # RUN usermod -a -G docker jenkins
-
 # USER jenkins
