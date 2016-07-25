@@ -1,4 +1,4 @@
-FROM kodbasen/java-jdk-armhf:jdk-8u91-b14
+FROM kodbasen/java-jdk-arm:jdk-8u91-b14
 
 RUN apt-get update \
   && apt-get install -y bash git curl zip \
