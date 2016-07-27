@@ -6,7 +6,7 @@ ENV GOARM=7 \
     GOBIN=$GOPATH/bin \
     PATH=$PATH:$GOBIN
 
-ADD build-helm.sh /go/build-helm.sh
+COPY build-helm.sh /go/build-helm.sh
 
 RUN apk update; apk upgrade \
   && echo "http://dl-3.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories; apk update \
