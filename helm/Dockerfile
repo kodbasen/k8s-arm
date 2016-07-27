@@ -1,19 +1,19 @@
-FROM hypriot/rpi-alpine-scratch:v3.3
+FROM hypriot/rpi-alpine-scratch:v3.4
 
 ENV GOARM=7 \
     GOARCH=arm \
     GOPATH=/go \
     GOBIN=$GOPATH/bin \
-    PATH=$PATH:$GOBIN
-
-COPY build-helm.sh /go/build-helm.sh
+    PATH=$PATH:$GOBIN \
+    VERSION=v2.0.0-alpha.2
 
 RUN apk update; apk upgrade \
-  && echo "http://dl-3.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories; apk update \
+  && echo "http://dl-3.alpinelinux.org/alpine/v3.4/community" >> /etc/apk/repositories; apk update \
   && cat /etc/apk/repositories \
-  && apk add bash build-base git mercurial go=1.6.2-r4 \
+  && apk add bash build-base git mercurial go=1.6.3-r0 \
   && git clone https://github.com/kubernetes/helm.git $GOPATH/src/k8s.io/helm \
   && cd $GOPATH/src/k8s.io/helm \
+  && git checkout $VERSION \
   && make bootstrap build \
   && apk del bash build-base git mercurial go \
   && rm -rf /tmp/* /var/tmp/* /var/cache/apk/* \
