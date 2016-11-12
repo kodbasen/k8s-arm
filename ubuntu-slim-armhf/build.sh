@@ -32,6 +32,7 @@ wget -q https://raw.githubusercontent.com/kubernetes/contrib/master/images/ubunt
 wget -q https://raw.githubusercontent.com/kubernetes/contrib/master/images/ubuntu-slim/Dockerfile.build
 wget -q https://raw.githubusercontent.com/kubernetes/contrib/master/images/ubuntu-slim/Dockerfile
 wget -q https://raw.githubusercontent.com/kubernetes/contrib/master/images/ubuntu-slim/runlevel
+wget -q https://raw.githubusercontent.com/kubernetes/contrib/master/images/ubuntu-slim/excludes
 
 sed -i -e "s;^FROM ubuntu:16.04;FROM ${TARGET};" "Dockerfile.build"
 sed -i -e 's;docker create --name \$(BUILD_IMAGE) \$(BUILD_IMAGE);docker create --name \$(BUILD_IMAGE) \$(BUILD_IMAGE) true;' 'Makefile'
