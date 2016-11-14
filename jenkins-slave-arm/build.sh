@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PREFIX="kodbasen"
-VERSION=2.7.1
+VERSION=2.19.2
 IMAGE="jenkins-slave-arm"
 
 docker build -t $PREFIX/$IMAGE:$VERSION .

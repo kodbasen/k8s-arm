@@ -13,11 +13,12 @@ if [ ! -d "$RESOURCEDIR" ]; then
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins.sh
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/install-plugins.sh
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/plugins.sh
+  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-support
   chmod +rx *
   cd $BASEDIR
 fi
 
-docker --rm=true --nocache build -t $PREFIX/jenkins-arm:$VERSION .
+docker build --rm --no-cache -t $PREFIX/jenkins-arm:$VERSION .
 docker tag $PREFIX/jenkins-arm:$VERSION $PREFIX/jenkins-arm:latest
 
 docker push $PREFIX/jenkins-arm:$VERSION
