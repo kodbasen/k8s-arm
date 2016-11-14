@@ -8,7 +8,7 @@ RESOURCEDIR="$BASEDIR/resources"
 
 if [ ! -d "$RESOURCEDIR" ]; then
   mkdir $RESOURCEDIR && cd $RESOURCEDIR
-  #curl -sSLk -o tini https://helm.kodbasen.org/platforms/linux/arm/tini/tini-2496926
+  curl -sSLk -o tini https://github.com/krallin/tini/releases/download/v0.13.0/tini-static-armhf
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/init.groovy
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins.sh
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/install-plugins.sh
