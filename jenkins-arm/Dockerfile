@@ -1,4 +1,4 @@
-FROM kodbasen/java-jdk-arm:jdk-8u91-b14
+FROM kodbasen/java-jdk-arm:jdk-8u111-b14
 
 RUN apt-get update \
   && apt-get install -y bash git curl zip \
@@ -34,9 +34,9 @@ RUN chmod +x /bin/tini
 COPY resources/init.groovy /usr/share/jenkins/ref/init.groovy.d/tcp-slave-agent-port.groovy
 
 ARG JENKINS_VERSION
-ENV JENKINS_VERSION ${JENKINS_VERSION:-2.7.1}
+ENV JENKINS_VERSION ${JENKINS_VERSION:-2.19.2}
 ARG JENKINS_SHA
-ENV JENKINS_SHA ${JENKINS_SHA:-12d820574c8f586f7d441986dd53bcfe72b95453}
+ENV JENKINS_SHA ${JENKINS_SHA:-6eb89e410b263a4c73028cc4e0165e8fd567c0a35df43d12ab4117a1fc86ad31}
 
 
 # could use ADD but this one does not check Last-Modified header

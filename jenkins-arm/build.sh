@@ -1,14 +1,14 @@
 #!/bin/bash
 
 PREFIX="kodbasen"
-VERSION=2.7.1
+VERSION=2.19.2
 
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 RESOURCEDIR="$BASEDIR/resources"
 
 if [ ! -d "$RESOURCEDIR" ]; then
   mkdir $RESOURCEDIR && cd $RESOURCEDIR
-  curl -sSLk -o tini https://helm.kodbasen.org/platforms/linux/arm/tini/tini-2496926
+  #curl -sSLk -o tini https://helm.kodbasen.org/platforms/linux/arm/tini/tini-2496926
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/195787dca586b41971e2037b48d3f6dca04c9667/init.groovy
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/195787dca586b41971e2037b48d3f6dca04c9667/jenkins.sh
   curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/195787dca586b41971e2037b48d3f6dca04c9667/install-plugins.sh
