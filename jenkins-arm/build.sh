@@ -9,10 +9,10 @@ RESOURCEDIR="$BASEDIR/resources"
 if [ ! -d "$RESOURCEDIR" ]; then
   mkdir $RESOURCEDIR && cd $RESOURCEDIR
   #curl -sSLk -o tini https://helm.kodbasen.org/platforms/linux/arm/tini/tini-2496926
-  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/195787dca586b41971e2037b48d3f6dca04c9667/init.groovy
-  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/195787dca586b41971e2037b48d3f6dca04c9667/jenkins.sh
-  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/195787dca586b41971e2037b48d3f6dca04c9667/install-plugins.sh
-  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/195787dca586b41971e2037b48d3f6dca04c9667/plugins.sh
+  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/init.groovy
+  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins.sh
+  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/install-plugins.sh
+  curl -sSLO https://raw.githubusercontent.com/jenkinsci/docker/master/plugins.sh
   chmod +rx *
   cd $BASEDIR
 fi
