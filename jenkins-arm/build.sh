@@ -17,7 +17,7 @@ if [ ! -d "$RESOURCEDIR" ]; then
   cd $BASEDIR
 fi
 
-docker --rm --nocache build -t $PREFIX/jenkins-arm:$VERSION .
+docker --rm=true --nocache build -t $PREFIX/jenkins-arm:$VERSION .
 docker tag $PREFIX/jenkins-arm:$VERSION $PREFIX/jenkins-arm:latest
 
 docker push $PREFIX/jenkins-arm:$VERSION
