@@ -2,7 +2,7 @@
 
 PREFIX="kodbasen"
 VERSION=2.19.2
-IMAGE="jenkins-docker-slave-arm"
+IMAGE="jenkinsci-slave-arm"
 
 docker build -t $PREFIX/$IMAGE:$VERSION .
 docker tag $PREFIX/$IMAGE:$VERSION $PREFIX/$IMAGE:latest
