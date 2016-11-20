@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PREFIX="kodbasen"
-VERSION=2.19.2
+VERSION=2.19.3
 
 BASEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 RESOURCEDIR="$BASEDIR/resources"
