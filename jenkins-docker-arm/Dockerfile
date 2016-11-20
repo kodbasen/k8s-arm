@@ -1,4 +1,4 @@
-FROM kodbasen/jenkins-arm:2.19.2
+FROM kodbasen/jenkins-arm:2.19.3
 
 USER root
 

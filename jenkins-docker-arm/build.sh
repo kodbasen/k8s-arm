@@ -2,7 +2,7 @@
 
 PREFIX=kodbasen
 IMAGE=jenkins-docker-arm
-TAG="2.19.2"
+TAG="2.19.3"
 
 docker build --rm=true --no-cache -t $PREFIX/$IMAGE:$TAG -f Dockerfile .
 docker tag $PREFIX/$IMAGE:$TAG $PREFIX/$IMAGE:latest
